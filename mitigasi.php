@@ -1,4 +1,4 @@
-<?php require 'koneksi.php' ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -90,7 +90,7 @@
                         <li><a href="titik_rawan.php">Titik Rawan Gempa</a></li>
                         <li><a href="mitigasi.php">Mitigasi</a></li>
                         <li><a href="sdgs.php">SDG's</a></li>
-                        <li><a href="admin/index.php">Login Admin</a></li>
+                        <li><a href="admin/login.php">Login Admin</a></li>
                     </ul>
                 </nav>
             </div>

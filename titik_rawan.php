@@ -1,4 +1,10 @@
-<?php require 'koneksi.php' ?>
+<?php 
+
+require 'function.php'; ;
+$gempa = query("SELECT * FROM gempa_daerah");
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +86,7 @@
                         <li><a href="titik_rawan.php">Titik Rawan Gempa</a></li>
                         <li><a href="mitigasi.php">Mitigasi</a></li>
                         <li><a href="sdgs.php">SDG's</a></li>
-                        <li><a href="admin/index.php">Login Admin</a></li>
+                        <li><a href="admin/login.php">Login Admin</a></li>
                     </ul>
                 </nav>
             </div>
@@ -112,9 +118,9 @@
                             </div>
                             <h4>Data Sebaran Titik Rawan Gempa Provinsi Sumatera Barat</h4><br>
                             <div class="panel-body">
-                                <table class="table table-bordered table-striped table-admin">
-                                    <thead>
-                                        <tr>
+                                <table class="table table-bordered table-striped table-admin ">
+                                    <thead  style="background: #0077b6; color: #fff">
+                                        <tr class="text-center">
                                             <th width="5%">No.</th>
                                             <th width="35%">Nama</th>
                                             <th width="25%">Status Administratif</th>
@@ -125,27 +131,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                        $data = file_get_contents('http://localhost/sig_tubes/perolehdata.php');
-                                        $no = 1;
-                                        if (json_decode($data, true)) {
-                                            $obj = json_decode($data);
-                                            foreach ($obj->results as $item) {
-                                        ?>
-                                                <tr>
-                                                    <td><?php echo $no; ?></td>
-                                                    <td><?php echo $item->nama_wilayah; ?></td>
-                                                    <td><?php echo $item->administratif; ?></td>
-                                                    <td><?php echo $item->ibukota; ?></td>
-                                                    <td><?php echo $item->luas_wilayah; ?></td>
-                                                    <td><?php echo $item->status_rawan; ?></td>
-
-                                                </tr>
-                                        <?php $no++;
-                                            }
-                                        } else {
-                                            echo "data tidak ada.";
-                                        } ?>
+                                        <?php $no = 1; ?>
+                                        <?php foreach ($gempa as $row) : ?>
+                                            <tr>
+                                                <td><?= $no; ?></td>
+                                                <td><?= $row['nama_wilayah'] ?></td>
+                                                <td><?= $row['administratif'] ?></td>
+                                                <td><?= $row['ibukota'] ?></td>
+                                                <td><?= $row['luas_wilayah'] ?></td>
+                                                <td><?= $row['status_rawan'] ?></td>
+                                            </tr>
+                                            <?php $no++; ?>
+                                        <?php endforeach; ?>
                                     </tbody>
                                 </table>
                             </div>

@@ -1,5 +1,3 @@
-<?php require 'koneksi.php' ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,7 +89,7 @@
                         <li><a href="titik_rawan.php">Titik Rawan Gempa</a></li>
                         <li><a href="mitigasi.php">Mitigasi</a></li>
                         <li><a href="sdgs.php">SDG's</a></li>
-                        <li><a href="admin/index.php">Login Admin</a></li>
+                        <li><a href="admin/login.php">Login Admin</a></li>
                     </ul>
                 </nav>
             </div>
@@ -437,33 +435,23 @@
                         <!-- end QGIS -->
                     </div>
                     <br>
-                    <a href="detail_peta.php" class="primary-btn text-uppercase text-black" >Lihat Detail</a>
+                    <a href="detail_peta.php" class="primary-btn text-uppercase text-black">Lihat Detail</a>
 
                 </div>
             </section>
         </section>
 
         <?php
-        include "koneksi.php";
+        require 'function.php';
 
         // Gabungkan query untuk menghitung kota dan kabupaten
-        $sql = "SELECT SUM(CASE WHEN administratif LIKE '%Kota%' THEN 1 ELSE 0 END) AS KOTA, SUM(CASE WHEN administratif LIKE '%Kabupaten%' THEN 1 ELSE 0 END) AS KABUPATEN FROM gempa_daerah";
+        $total = query("SELECT 
+        SUM(CASE WHEN administratif LIKE '%Kota%' THEN 1 ELSE 0 END) AS KOTA, 
+        SUM(CASE WHEN administratif LIKE '%Kabupaten%' THEN 1 ELSE 0 END) AS KABUPATEN 
+    FROM gempa_daerah");
+        $totKota = $total[0]['KOTA'];
+        $totKab = $total[0]['KABUPATEN'];
 
-        // Jalankan query gabungan
-        $result = mysqli_query($koneksi, $sql);
-
-        // Cek hasil query
-        if (!$result) {
-            die("Gagal query: " . mysqli_error($koneksi));
-        }
-
-        // Ambil data kota dan kabupaten
-        $row = mysqli_fetch_assoc($result);
-        $jumlahKota = $row["KOTA"];
-        $jumlahKab = $row["KABUPATEN"];
-
-        // Tutup koneksi database
-        mysqli_close($koneksi);
         ?>
 
         <section style="background-image: url(asset/img/indo.png); background-size: cover; height:650px ;  ">
@@ -481,11 +469,11 @@
                 <div class="row justify-content-center">
                     <div class="col-2">
                         <h3 style="color: white;">KABUPATEN</h3>
-                        <p class="text-center" style="font-size: 70px; font-weight:bold;"><?= $jumlahKab ?></p>
+                        <p class="text-center" style="font-size: 70px; font-weight:bold;"><?= $totKab ?></p>
                     </div>
                     <div class="col-2">
                         <h3 style="color: white;">KOTA</h3>
-                        <p style="font-size: 70px; font-weight:bold;"><?= $jumlahKota ?></p>
+                        <p style="font-size: 70px; font-weight:bold;"><?= $totKota ?></p>
                     </div>
                 </div>
                 <!-- End other-issue Area -->
