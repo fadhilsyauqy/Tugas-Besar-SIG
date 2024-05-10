@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-require 'function.php'; ;
+require 'function.php';
 $gempa = query("SELECT * FROM gempa_daerah");
 
 
@@ -119,27 +119,33 @@ $gempa = query("SELECT * FROM gempa_daerah");
                             <h4>Data Sebaran Titik Rawan Gempa Provinsi Sumatera Barat</h4><br>
                             <div class="panel-body">
                                 <table class="table table-bordered table-striped table-admin ">
-                                    <thead  style="background: #0077b6; color: #fff">
+                                    <thead style="background: #0077b6; color: #fff">
                                         <tr class="text-center">
-                                            <th width="5%">No.</th>
-                                            <th width="35%">Nama</th>
-                                            <th width="25%">Status Administratif</th>
-                                            <th width="30%">Ibukota</th>
-                                            <th width="25%">Luas Wilayah(Km2)</th>
-                                            <th width="25%">Status</th>
-                                            <!-- <th width="25%">Details</th> -->
+                                            <th class="text-center" width="5%" >No.</th>
+                                            <th class="text-center" width="15%">Nama</th>
+                                            <th class="text-center" width="15%">Status Administratif</th>
+                                            <th class="text-center" width="15%">Ibukota</th>
+                                            <th class="text-center" width="15%">Luas Wilayah(Km2)</th>
+                                            <th class="text-center" width="10%">Status</th>
+                                            <th class="text-center" width="20%">Details</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php $no = 1; ?>
                                         <?php foreach ($gempa as $row) : ?>
                                             <tr>
-                                                <td><?= $no; ?></td>
+                                                <td class="text-center"><?= $no; ?></td>
                                                 <td><?= $row['nama_wilayah'] ?></td>
                                                 <td><?= $row['administratif'] ?></td>
                                                 <td><?= $row['ibukota'] ?></td>
                                                 <td><?= $row['luas_wilayah'] ?></td>
                                                 <td><?= $row['status_rawan'] ?></td>
+                                                <td class="center text-center" >
+                                                    <div class="btn-group">
+                                                        <a href="detail_tabel.php?id_gempa=<?php echo $row['id_gempa']?>" rel="tooltip" data-original-title="Lihat File" data-placement="top" class="btn btn-primary" style="background:#0077b6;">
+                                                            <i class="fa fa-map-marker"> </i> Detail dan Lokasi</a>&nbsp;
+                                                    </div>
+                                                </td>
                                             </tr>
                                             <?php $no++; ?>
                                         <?php endforeach; ?>

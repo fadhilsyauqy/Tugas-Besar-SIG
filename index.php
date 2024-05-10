@@ -454,14 +454,14 @@
 
         ?>
 
-        <section style="background-image: url(asset/img/indo.png); background-size: cover; height:650px ;  ">
+        <section style="background-image: url(asset/img/home2.png); background-size: cover; height:650px ;  ">
             <div class="container text-white" style="padding-top: 80px; ">
                 <div class="row d-flex justify-content-center">
                     <div class="menu-content  col-lg-8">
                         <div class="title text-center">
                             <h1 class="text-white" style="margin-bottom: 30px;">JANGKAUAN PETA</h1>
                             <p style="margin-bottom: 30px;">
-                                Aplikasi pemetaan geografis pesebaran titik rawan gempa di Provinsi Sumatera Barat ini memuat informasi dan lokasisebaran titik rawan yang ada dari kabupaten/kota yang ada di Provinsi Sumatera Barat. Pemetaan diambil dari data berkaitan dengan data sebaran titik rawan gempa di Provinsi Sumatera Barat
+                                Aplikasi pemetaan geografis pesebaran titik rawan gempa di Provinsi Sumatera Barat ini memuat informasi dan lokasi sebaran titik rawan yang ada dari kabupaten/kota yang ada di Provinsi Sumatera Barat. Pemetaan diambil dari data berkaitan dengan data sebaran titik rawan gempa di Provinsi Sumatera Barat
                             </p>
                         </div>
                     </div>

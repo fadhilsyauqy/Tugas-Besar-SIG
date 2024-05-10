@@ -160,8 +160,8 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
-                <table class="table table-bordered table-striped table-admin">
+                </table >
+                <table class="table table-bordered table-striped table-admin mt-3">
                     <thead style="background-color: #0077b6;">
                         <tr>
                             <th class="text-center text-white">Status</th>
@@ -215,6 +215,7 @@
                         </tr>
                 </table>
             </div>
+            <a href="https://www.pta-padang.go.id/pages/mitigasi-bencana"> Sumber data</a>
         </div>
     </section>
 

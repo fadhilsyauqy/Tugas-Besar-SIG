@@ -2479,7 +2479,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 /*-------- Start Banner Area ------------*/
 .banner-area {
-    background: url(../img/bg-1.png) center;
+    background: url(../img/home.png) center;
     background-size: cover;
     height: 800px;
 }
@@ -3058,7 +3058,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 
 .mitigasi-gambar1 {
-    background: url(../img/merah.png) center;
+    background: url(../img/mitigation1.png) center;
     background-size: cover;
     height: 130px;
     
@@ -3069,7 +3069,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .mitigasi-gambar2 {
-    background: url(../img/kunning.png) center;
+    background: url(../img/mitigation2.png) center;
     background-size: cover;
     height: 130px;
     
@@ -3080,7 +3080,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .mitigasi-gambar3 {
-    background: url(../img/hijau.png) center;
+    background: url(../img/mitigation3.png) center;
     background-size: cover;
     height: 130px;
     
