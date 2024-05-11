@@ -1,9 +1,11 @@
 <?php
-// session_start();
-// if ($_SESSION['status'] != "login") {
-//     header("location:../tampil_data.php?pesan=belum_login");
-// }
-include "../koneksi.php";
+
+
+require '../function.php';
+
+$id = $_GET['id_gempa'];
+
+$gempa = query("SELECT * FROM gempa_daerah WHERE id_gempa = $id")[0];
 
 ?>
 
@@ -26,7 +28,7 @@ include "../koneksi.php";
             bottom: 0;
             left: 0;
             width: 100%;
-        }   
+        }
     </style>
 </head>
 
@@ -61,34 +63,29 @@ include "../koneksi.php";
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Login</a>
+                            <a href="login.php" class="sidebar-link" target="_blank">Login</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Register</a>
+                            <a href="register.php" class="sidebar-link">Register</a>
                         </li>
                     </ul>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="logout.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
             </div>
         </aside>
         <div class="main">
+
             <main class="content px-3 py-4">
-
-                <?php
-                $id = $_GET['id_gempa'];
-                $query = mysqli_query($koneksi, "select * from gempa_daerah where id_gempa='$id'");
-                $data  = mysqli_fetch_array($query);
-                ?>
-
                 <div class="container-fluid">
                     <div class="card shadow mb-3">
+
                         <div class="card-header">
-                            <h3 class="fw-bold fs-4 my-3">Detail <?php echo $data['administratif'] . '  ' . $data['nama_wilayah']; ?>
+                            <h3 class="fw-bold fs-4 my-3">Detail <?php echo $gempa['administratif'] . '  ' . $gempa['nama_wilayah']; ?></h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -96,30 +93,32 @@ include "../koneksi.php";
                                     <table class="table table-bordered">
                                         <tr>
                                             <td>Ibukota</td>
-                                            <td><?php echo $data['ibukota']; ?></td>
+                                            <td><?= $gempa['ibukota']; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Luas Wilayah</td>
-                                            <td><?php echo $data['luas_wilayah']; ?></td>
+                                            <td><?= $gempa['luas_wilayah']; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Status</td>
-                                            <td><?php echo $data['status_rawan']; ?></td>
+                                            <td><?= $gempa['status_rawan']; ?></td>
                                         </tr>
 
                                         <tr>
                                             <td>Latitude</td>
-                                            <td><?php echo $data['latitude']; ?></td>
+                                            <td><?= $gempa['latitude']; ?></td>
                                         </tr>
                                         <tr>
                                             <td>Longitude</td>
-                                            <td><?php echo $data['longitude']; ?></td>
+                                            <td><?= $gempa['longitude']; ?></td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
 
                         </div>
+
+
                     </div>
                 </div>
             </main>

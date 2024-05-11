@@ -1,32 +1,20 @@
-<?php 
+<?php
+
 
 require '../function.php';
 
-if (isset($_POST["login"])) {
+if (isset($_POST["register"])) {
 
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    $result = mysqli_query($db, "SELECT * FROM user WHERE username = '$username'");
-
-    //cek username
-    if (mysqli_num_rows($result) === 1) {
-
-        //cek password
-        $row = mysqli_fetch_assoc($result);
-
-        if (password_verify($password, $row["password"])) {
-            //set session
-            $_SESSION["login"] = true;
-
-
-            header("Location: index.php");
-            exit;
-        }
+    if (register($_POST) > 0) {
+        echo "<script>
+                alert('user baru berhasil ditambahkan');
+            </script>";
+    } else {
+        echo mysqli_error($db);
     }
-
-    $error = true;
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -41,8 +29,6 @@ if (isset($_POST["login"])) {
 </head>
 
 <body>
-    
-
 
     <section>
         <div class="form-box">
@@ -59,7 +45,12 @@ if (isset($_POST["login"])) {
                         <input type="password" name="password" id="password" class="form-control " required>
                         <label for="password" class="form-label">Password </label>
                     </div>
-                    <button type="submit" name="login">Log in</button>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" name="password2" id="password2" class="form-control " required>
+                        <label for="password2" class="form-label">Konfirmasi Password </label>
+                    </div>
+                    <button type="submit" name="register">Log in</button>
                 </form>
             </div>
         </div>

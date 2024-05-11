@@ -1,3 +1,8 @@
+<?php 
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -65,16 +70,16 @@
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Login</a>
+                            <a href="login.php" class="sidebar-link" target="_blank">Login</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Register</a>
+                            <a href="register.php" class="sidebar-link">Register</a>
                         </li>
                     </ul>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="logout.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -88,13 +93,13 @@
                 <br>
                 <br>
                 <br>
-                <center><img src="../asset/img/bg-1.png" alt="" width="500px" style="border: 5 solid #0077b6;"> </center>
+                <center><img src="../asset/img/home.png" alt="" width="580px" style="border: 5 solid #0077b6;"> </center>
                 <br>
-                <h2 class="text-bawah">
+                <h3 class="text-bawah">
                     <center><b> SISTEM INFORMASI GEOGRAFIS
                             SEBARAN TITIK RAWAN GEMPA BUMI
                             SUMATERA BARAT</b> </center>
-                </h2>
+                </h3>
                 <h2>
                     <center><a href="../index.php"><button class="btn btn-kunjung" type="button" href="../index.php">KUNJUNGI WEBSITE</button></a></center>
                 </h2>

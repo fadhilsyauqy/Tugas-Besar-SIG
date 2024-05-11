@@ -10,8 +10,7 @@ section{
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    
-    background: url('../../asset/img/bg-1.png')no-repeat;
+    background: url('../../asset/img/tes.jpg')no-repeat;
     background-position: center;
     background-size: cover;
 }
@@ -22,7 +21,7 @@ section{
     background: transparent;
     border: 2px solid rgba(0, 119, 182, 0.5); 
     border-radius: 20px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(50px);
     display: flex;
     justify-content: center;
     align-items: center;

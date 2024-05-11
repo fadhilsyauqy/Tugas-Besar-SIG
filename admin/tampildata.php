@@ -1,9 +1,8 @@
 <?php
-// session_start();
-// if ($_SESSION['status'] != "login") {
-//     header("location:../tampil_data.php?pesan=belum_login");
-// }
-include "../koneksi.php";
+
+
+require "../function.php";
+$gempa = query("SELECT * FROM gempa_daerah");
 
 ?>
 
@@ -53,16 +52,16 @@ include "../koneksi.php";
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Login</a>
+                            <a href="login.php" class="sidebar-link" target="_blank">Login</a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Register</a>
+                            <a href="register.php" class="sidebar-link">Register</a>
                         </li>
                     </ul>
                 </li>
             </ul>
             <div class="sidebar-footer">
-                <a href="#" class="sidebar-link">
+                <a href="logout.php" class="sidebar-link">
                     <i class="lni lni-exit"></i>
                     <span>Logout</span>
                 </a>
@@ -94,30 +93,25 @@ include "../koneksi.php";
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                            $no = 0;
-                                            $data = mysqli_query($koneksi, "select * from gempa_daerah");
-                                            while ($d = mysqli_fetch_array($data)) {
-                                                $no++;
-                                            ?>
-                                                <tr scope="row">
-                                                    <td><?php echo $no ?></td>
-                                                    <td><b><a href="detail_data.php?id_gempa=<?php echo $d['id_gempa']; ?> ">
-                                                                <?php echo $d['nama_wilayah']; ?> </a> </b></td>
-                                                    <td><?php echo $d['administratif']; ?></td>
-                                                    <td><?php echo $d['ibukota']; ?></td>
-                                                    <td><?php echo $d['luas_wilayah']; ?></td>
-                                                    <td><?php echo $d['latitude']; ?></td>
-                                                    <td><?php echo $d['longitude']; ?></td>
-                                                    <td><?php echo $d['status_rawan']; ?></td>
+                                            <?php $no = 1 ?>
+                                            <?php foreach ($gempa as $row) : ?>
+                                                <tr>
+                                                    <td><?= $no ?></td>
+                                                    <td><b><a href="detail_data.php?id_gempa=<?php echo $row['id_gempa']; ?> ">
+                                                                <?php echo $row['nama_wilayah']; ?> </a> </b></td>
+                                                    <td><?= $row["administratif"] ?></td>
+                                                    <td><?= $row["ibukota"] ?></td>
+                                                    <td><?= $row["luas_wilayah"] ?></td>
+                                                    <td><?= $row["latitude"] ?></td>
+                                                    <td><?= $row["longitude"] ?></td>
+                                                    <td><?= $row["status_rawan"] ?></td>
                                                     <td>
-                                                        <a href="edit_data.php?id_gempa=<?php echo $d['id_gempa']; ?> " class="btn-sm btn-light btn"><img src="../asset/svg/edit.svg"></a>
+                                                        <a href="edit.php?id_gempa=<?php echo $row['id_gempa']; ?> " class="btn-sm btn-light btn"><img src="../asset/svg/edit.svg"></a>
+                                                        <a href="hapus.php?id_gempa=<?php echo $row['id_gempa']; ?> " class="btn-sm btn-light btn"><img src="../asset/svg/hapus.svg"></a>
                                                     </td>
                                                 </tr>
-
-                                            <?php
-                                            }
-                                            ?>
+                                                <?php $no++ ?>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
