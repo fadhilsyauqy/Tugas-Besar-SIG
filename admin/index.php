@@ -1,4 +1,10 @@
 <?php 
+session_start();
+
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
 
 
 ?>
@@ -69,9 +75,6 @@
                         <span>Auth</span>
                     </a>
                     <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="login.php" class="sidebar-link" target="_blank">Login</a>
-                        </li>
                         <li class="sidebar-item">
                             <a href="register.php" class="sidebar-link">Register</a>
                         </li>
