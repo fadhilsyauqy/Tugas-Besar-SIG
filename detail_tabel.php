@@ -4,7 +4,22 @@ require 'function.php';;
 
 $id = $_GET['id_gempa'];
 
-$gempa = query("SELECT * FROM gempa_daerah WHERE id_gempa = $id")[0];
+$gempa_result = query("SELECT * FROM gempa_daerah WHERE id_gempa = $id");
+$riwayat_result = query("SELECT * FROM riwayat_gempa WHERE id_gempa = $id");
+
+if (!empty($gempa_result)) {
+    $gempa = $gempa_result[0]; // Mengakses elemen pertama dari array hasil query
+} else {
+    // Handle ketika query tidak mengembalikan hasil
+    die("Data gempa tidak ditemukan.");
+}
+
+if (!empty($riwayat_result)) {
+    $riwayat = $riwayat_result[0]; // Mengakses elemen pertama dari array hasil query
+} else {
+    // Tidak ada riwayat, atur $riwayat menjadi null atau sesuai kebutuhan
+    $riwayat = null;
+}
 
 ?>
 
@@ -164,36 +179,46 @@ $gempa = query("SELECT * FROM gempa_daerah WHERE id_gempa = $id")[0];
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Ibukota</td>
+                                    <td style="font-weight: bolder;">Ibukota</td>
                                     <td>
-                                        <h5>  <?= ":  " . $gempa['ibukota']; ?> </h5>
+                                        <?= ":  " . $gempa['ibukota']; ?> 
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Luas Wilayah</td>
+                                    <td style="font-weight: bolder;">Luas Wilayah</td>
                                     <td>
-                                        <h5> <?= ":  " . $gempa['luas_wilayah']; ?></h5>
+                                        <?= ":  " . $gempa['luas_wilayah']; ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Status</td>
+                                    <td style="font-weight: bolder;">Status Rawan</td>
                                     <td>
-                                        <h5>  <?= ":  " . $gempa['status_rawan']; ?></h5>
+                                        <?= ":  " . $gempa['status_rawan']; ?>
                                     </td>
                                 </tr>
 
                                 <tr>
-                                    <td>Latitude</td>
+                                    <td style="font-weight: bolder;">Latitude</td>
                                     <td>
-                                        <h5> <?= ":  " . $gempa['latitude']; ?></h5>
+                                        <?= ":  " . $gempa['latitude']; ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Longitude</td>
+                                    <td style="font-weight: bolder;">Longitude</td>
                                     <td>
-                                        <h5> <?= ":  " . $gempa['longitude']; ?></h5>
+                                        <?= ":  " . $gempa['longitude']; ?>
                                     </td>
                                 </tr>
+                                <?php if (!empty($riwayat)) : ?> 
+                                <tr>
+                                    <td style="font-weight: bolder;">Riwayat</td>
+                                    <td>
+                                        <ol>   <?= "• ". "Tanggal " . " : " .   $riwayat['tanggal'] ?> </ol>
+                                        <ol>   <?= "• ". "Magnitudo " . " : " .   $riwayat['magnitudo'] ?> </ol>
+                                        <ol>   <?= "• ". "Dampak " . " : " .   $riwayat['dampak'] ?> </ol>
+                                    </td>
+                                </tr>
+                                <?php endif; ?>
                             </table>
                         </div>
                     </div>

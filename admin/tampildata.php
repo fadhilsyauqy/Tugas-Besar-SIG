@@ -107,7 +107,7 @@ $gempa = query("SELECT * FROM gempa_daerah");
                                                     <td><?= $row["status_rawan"] ?></td>
                                                     <td>
                                                         <a href="edit.php?id_gempa=<?php echo $row['id_gempa']; ?> " class="btn-sm btn-light btn"><img src="../asset/svg/edit.svg"></a>
-                                                        <a href="hapus.php?id_gempa=<?php echo $row['id_gempa']; ?> " class="btn-sm btn-light btn"><img src="../asset/svg/hapus.svg"></a>
+                                                        
                                                     </td>
                                                 </tr>
                                                 <?php $no++ ?>

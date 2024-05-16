@@ -215,7 +215,9 @@
                         </tr>
                 </table>
             </div>
-            <a href="https://www.pta-padang.go.id/pages/mitigasi-bencana"> Sumber data</a>
+            <button class="btn" style="background-color: #0077b6; margin-left: -16px" >
+                <a href="https://www.pta-padang.go.id/pages/mitigasi-bencana" style="color: #fff; " > Sumber Data</a>
+            </button>
         </div>
     </section>
 

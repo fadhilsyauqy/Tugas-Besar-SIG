@@ -47,7 +47,7 @@ if (isset($_POST["login"])) {
     <section>
         <div class="form-box">
             <div class="form-value">
-                <form action="" method="post">
+                <form action="" method="post" autocomplete="off">
                     <h2>Login</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
