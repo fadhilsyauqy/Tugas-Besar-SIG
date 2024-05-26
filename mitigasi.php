@@ -90,7 +90,7 @@
                         <li><a href="titik_rawan.php">Titik Rawan Gempa</a></li>
                         <li><a href="mitigasi.php">Mitigasi</a></li>
                         <li><a href="sdgs.php">SDG's</a></li>
-                        <li><a href="admin/login.php">Login Admin</a></li>
+                        <li><a href="admin/login.php" target="_blank">Login Admin</a></li>
                     </ul>
                 </nav>
             </div>
@@ -216,7 +216,7 @@
                 </table>
             </div>
             <button class="btn" style="background-color: #0077b6; margin-left: -16px" >
-                <a href="https://www.pta-padang.go.id/pages/mitigasi-bencana" style="color: #fff; " > Sumber Data</a>
+                <a href="https://www.pta-padang.go.id/pages/mitigasi-bencana" target="_blank" style="color: #fff; " > Sumber Data</a>
             </button>
         </div>
     </section>
